@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn with Fun - Coding Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #eef2ff;
+            text-align: center;
+        }
+
+        /* Header */
+        .header {
+            background: white;
+            padding: 15px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            font-size: 26px;
+            font-weight: 700;
+            color: #0b0b0c;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+            padding: 8px 12px;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #2d3652;
+        }
+
+        /* Course Selection */
+        .course-selection {
+            background: white;
+            max-width: 500px;
+            margin: 40px auto;
+            padding: 20px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        .course-selection h2 {
+            color: #111113;
+        }
+
+        .course-button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            background: #2e313b;
+            color: white;
+            border: none;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .course-button:hover {
+            background: #26282e;
+        }
+
+        /* Quiz Container */
+        .container {
+            display: none;
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        .question {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .options button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: none;
+            background: #34353a;
+            color: white;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .options button:hover {
+            background: #121316;
+        }
+
+        .timer {
+            font-size: 18px;
+            font-weight: bold;
+            color: red;
+            margin-top: 10px;
+        }
+
+        .result {
+            font-size: 18px;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        .score {
+            font-size: 20px;
+            font-weight: bold;
+            color: green;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <div class="header">
+        <span style="color: rgb(7, 11, 12);"><b ><a href="index.html" style="text-decoration: none;">tvasta</a></b></span>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="progress.html">Progress</a>
+        </div>
+    </div>
+
+    <!-- Course Selection -->
+    <div class="course-selection" id="courseSelection">
+        <h2>Choose a Course</h2>
+        <button class="course-button" onclick="startQuiz('web')">Web Development</button>
+        <button class="course-button" onclick="startQuiz('python')">Python Programming</button>
+        <button class="course-button" onclick="startQuiz('java')">Java Basics</button>
+    </div>
+
+    <!-- Quiz Section -->
+    <div class="container" id="quizContainer">
+        <h2>🧠 Answer the Coding MCQ!</h2>
+        <p class="timer" id="timer">⏳ Time Left: 10s</p>
+        
+        <div class="question" id="question">Loading question...</div>
+
+        <div class="options" id="options"></div>
+
+        <div class="result" id="result"></div>
+
+        <div class="score" id="score"></div>
+    </div>
+
+    <script>
+        // Quiz questions for different courses
+        const quizzes = {
+            web: [
+                { question: "Which language is used for web development?", options: ["Python", "JavaScript", "C++", "Java"], correct: 1 },
+                { question: "What does HTML stand for?", options: ["Hyper Text Markup Language", "High Tech Modern Language", "Home Tool Machine Learning", "None of the above"], correct: 0 }
+            ],
+            python: [
+                { question: "Which symbol is used for comments in Python?", options: ["//", "#", "/* */", "--"], correct: 1 },
+                { question: "Which keyword is used to define a function in Python?", options: ["func", "define", "def", "lambda"], correct: 2 }
+            ],
+            java: [
+                { question: "Java runs on which platform?", options: ["Windows", "Mac", "Linux", "All of the above"], correct: 3 },
+                { question: "Which keyword is used to create a class in Java?", options: ["class", "Class", "define", "struct"], correct: 0 }
+            ]
+        };
+
+        let currentQuiz = [];
+        let currentQuestionIndex = 0;
+        let score = 0;
+        let timer;
+        let timeLeft = 10;
+
+        function startQuiz(course) {
+            document.getElementById("courseSelection").style.display = "none";
+            document.getElementById("quizContainer").style.display = "block";
+            currentQuiz = quizzes[course];
+            currentQuestionIndex = 0;
+            score = 0;
+            loadQuestion();
+        }
+
+        function loadQuestion() {
+            if (currentQuestionIndex >= currentQuiz.length) {
+                document.getElementById("question").innerText = "Quiz Completed! 🎉";
+                document.getElementById("options").innerHTML = "";
+                document.getElementById("timer").style.display = "none";
+                document.getElementById("result").innerHTML = "";
+                document.getElementById("score").innerHTML = `Your final score: ${score} / ${currentQuiz.length}`;
+                return;
+            }
+
+            const currentQuestion = currentQuiz[currentQuestionIndex];
+            document.getElementById("question").innerText = currentQuestion.question;
+
+            const optionsHTML = currentQuestion.options.map((option, index) => 
+                `<button onclick="checkAnswer(${index})">${option}</button>`
+            ).join("");
+
+            document.getElementById("options").innerHTML = optionsHTML;
+            document.getElementById("result").innerHTML = "";
+            document.getElementById("timer").innerText = `⏳ Time Left: ${timeLeft}s`;
+
+            startTimer();
+        }
+
+        function checkAnswer(selectedIndex) {
+            clearInterval(timer);
+
+            const currentQuestion = currentQuiz[currentQuestionIndex];
+            if (selectedIndex === currentQuestion.correct) {
+                document.getElementById("result").innerHTML = "✅ Correct!";
+                score++;
+            } else {
+                document.getElementById("result").innerHTML = "❌ Incorrect!";
+            }
+
+            setTimeout(() => {
+                currentQuestionIndex++;
+                loadQuestion();
+            }, 1500);
+        }
+
+        function startTimer() {
+            timeLeft = 10;
+            timer = setInterval(() => {
+                timeLeft--;
+                document.getElementById("timer").innerText = `⏳ Time Left: ${timeLeft}s`;
+                if (timeLeft === 0) {
+                    clearInterval(timer);
+                    document.getElementById("result").innerHTML = "⏳ Time's up!";
+                }
+            }, 1000);
+        }
+    </script>
+
+</body>
+</html>

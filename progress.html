@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tvasta</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #eef7ff;
+            color: #333;
+        }
+
+        .header {
+            background: white;
+            padding: 15px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            font-size: 26px;
+            font-weight: 700;
+            color: black;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+            padding: 8px 12px;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #007bff;
+        }
+
+        .dashboard-container {
+            display: flex;
+            width: 90%;
+            margin: 30px auto;
+            gap: 20px;
+        }
+
+        .sidebar {
+            width: 25%;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .profile-pic-large {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            border: 3px solid #007bff;
+            object-fit: cover;
+        }
+
+        .profile-details {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .profile-stats {
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px solid #ddd;
+        }
+
+        .profile-stats p {
+            margin: 5px 0;
+            font-size: 14px;
+        }
+
+        .pie-chart-container {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .pie-chart-container h4 {
+            margin-bottom: 10px;
+        }
+
+        .main-content {
+            width: 75%;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .content-box {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .flex-container {
+            display: flex;
+            gap: 15px;
+        }
+
+        .flex-item {
+            flex: 1;
+        }
+
+        .small-chart {
+            height: 200px !important;
+        }
+
+        footer {
+            background: #E5E4E2;
+            color: black;
+            padding: 5px;
+            margin-top: 5px;
+            text-align: center;
+        }
+
+        .social-icons a {
+            margin: 0 10px;
+            color: white;
+            font-size: 20px;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: #007bff;
+        }
+        .footer {
+            background: #f8f9fa;
+            padding: 40px 10%;
+            color: black;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .footer-section {
+            flex: 1;
+            min-width: 200px;
+            margin-bottom: 20px;
+        }
+
+        .footer h3 {
+            font-size: 16px;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .footer a {
+            text-decoration: none;
+            color: #007bff;
+            display: block;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .download-buttons img {
+            width: 150px;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+
+        .contact-info {
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .copyright {
+            text-align: center;
+            background: #e9ecef;
+            padding: 15px;
+            font-size: 14px;
+            color: #555;
+        }
+
+        @media (max-width: 768px) {
+            .footer {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .footer-section {
+                width: 100%;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">
+            <span style="color: rgb(7, 11, 12);"><b ><a href="index.html" style="text-decoration: none;">tvasta</a></b></span>
+        </div>
+        
+        <div class="hamburger">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="courses.html">Courses</a>
+          
+            <a href="dash.html">Profile</a>
+        </div>
+    </div>
+
+    <div class="dashboard-container">
+
+<div class="main-content">
+    
+    <div class="content-box flex-container">
+        <div class="flex-item">
+            <h3>📊 Contest Rating</h3>
+            <p><strong>1,453</strong></p>
+            <canvas id="ratingChart"></canvas>
+        </div>
+        <div class="flex-item">
+            <h3>🌍 Global Ranking</h3>
+            <p><strong>401,991 / 665,758</strong></p>
+        </div>
+    </div>
+
+    <div class="content-box">
+        <h3>✅ Problems Solved</h3>
+        <p><strong>4 / 3,460</strong> Solved</p>
+        <p>🟡 2 Attempting</p>
+    </div>
+
+    <div class="content-box">
+        <h3>📅 Submissions in the Past Year</h3>
+        <canvas id="submissionsChart" class="small-chart"></canvas>
+    </div>
+
+    <div class="content-box">
+        <h3>📝 Recent Activity</h3>
+        <ul>
+            <li>📝 Roman to Integer </li>
+            <li>📝 Palindrome Number</li>
+            <li>📝 Sum of Elements of Array</li>
+            <li>📝 Minimum Element After Replacement</li>
+        </ul>
+    </div>
+
+</div>
+
+</div>
+
+<footer class="footer">
+    <div class="footer-section">
+        <h3>Company</h3>
+        <a href="#">About Us</a>
+        <a href="#">Careers</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms and Conditions</a>
+    </div>
+
+    <div class="footer-section">
+        <h3>Help & Support</h3>
+        <a href="#">User Guidelines</a>
+        <a href="#">Refund Policy</a>
+        <a href="#">Grievance Redressal</a>
+    </div>
+
+    <div class="footer-section">
+        <h3>Contact Us</h3>
+        <p class="contact-info">📞 +91 8585858585</p>
+        <p class="contact-info">✉️ support@tvasta.com</p>
+    </div>
+
+   
+    <div class="footer-section">
+        <h3>Study Material</h3>
+        <a href="#">Artificial intelligence</a>
+        <a href="#">DSA</a>
+        <a href="#">python</a>
+    </div>
+
+
+   
+</footer>
+
+<!-- Copyright Notice -->
+<div class="copyright">
+    © 2025 Web Wizards. All rights reserved.
+</div>
+<script>
+function renderCharts() {
+    new Chart(document.getElementById("ratingChart"), {
+        type: 'line',
+        data: { labels: ["Jan", "Feb", "Mar", "Apr"], datasets: [{ data: [1200, 1300, 1400, 1453], borderColor: "#007bff" }] }
+    });
+
+    new Chart(document.getElementById("submissionsChart"), {
+        type: 'bar',
+        data: { labels: ["Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct"], datasets: [{ data: [2, 5, 0, 3, 7, 0, 6, 4], backgroundColor: "#007bff" }] }
+    });
+
+    new Chart(document.getElementById("pieChart"), {
+        type: 'pie',
+        data: { labels: ["Artificial Intelligence", "Python", "React.js"], datasets: [{ data: [60, 10, 30], backgroundColor: ["#90EE90", "#ADD8E6", "#ffce56"] }] }
+    });
+
+}
+
+document.addEventListener("DOMContentLoaded", renderCharts);
+</script>
+
+</body>
+</html>

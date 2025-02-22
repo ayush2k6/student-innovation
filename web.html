@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Development Course</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        a{
+            text-decoration: none;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #e4e4e4;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .header {
+            background: white;
+            padding: 15px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .logo a {
+            font-size: 26px;
+            font-weight: 700;
+            color: black;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+            padding: 8px 12px;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #34373a;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+
+        .hamburger .bar {
+            width: 30px;
+            height: 4px;
+            background-color: black;
+            border-radius: 5px;
+        }
+
+        .course-container {
+            max-width: 800px;
+            margin: 3rem auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .course-thumbnail img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .study-material ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .study-material li {
+            background: #f8f9fa;
+            margin: 10px 0;
+            padding: 10px;
+            border-left: 5px solid #5c5e60;
+        }
+
+        .back-home {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: #505254;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .footer {
+            background: #f8f9fa;
+            padding: 40px 10%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .footer-section {
+            flex: 1;
+            min-width: 200px;
+            margin-bottom: 20px;
+        }
+
+        .copyright {
+            text-align: center;
+            background: #e9ecef;
+            padding: 15px;
+            font-size: 14px;
+            color: #555;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                right: 10px;
+                background: white;
+                width: 200px;
+                box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-links.show {
+                display: flex;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .footer {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">
+            <a href="index.html">tvasta</a>
+        </div>
+        <div class="hamburger" onclick="toggleMenu()">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="courses.html">Courses</a>
+            <a href="progress.html">Progress</a>
+            <a href="dash.html">Profile</a>
+        </div>
+    </div>
+
+    <div class="course-container">
+        <div class="course-thumbnail">
+            <img src="https://i.pinimg.com/736x/51/b2/fe/51b2fee7367115957f29cb0add059017.jpg" alt="Web Development Course Thumbnail">
+        </div>
+        <h1>Web Development Course</h1>
+        <p>Master HTML, CSS, JavaScript, and frameworks like React and Node.js to build dynamic websites!</p>
+        <div class="study-material">
+            <h2>Study Material</h2>
+            <ul>
+                <li><a href="#">📄 HTML Guide</a></li>
+                <li><a href="#">📄 CSS Techniques</a></li>
+                <li><a href="#">📄 JavaScript Basics</a></li>
+                <li><a href="#">📄 React.js Intro</a></li>
+            </ul>
+        </div>
+        <a href="index.html" class="back-home">Back to Home</a>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-section">
+            <h3>Company</h3>
+            <a href="#">About Us</a>
+            <a href="#">Privacy Policy</a>
+        </div>
+        <div class="footer-section">
+            <h3>Contact</h3>
+            <p>📞 +91 8585858585</p>
+            <p>✉️ support@tvasta.com</p>
+        </div>
+    </footer>
+    <div class="copyright">© 2025 Web Wizards. All rights reserved.</div>
+
+    <script>
+        function toggleMenu() {
+            document.querySelector('.nav-links').classList.toggle('show');
+        }
+    </script>
+</body>
+</html>

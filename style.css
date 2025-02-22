@@ -1,0 +1,380 @@
+/* General Reset and Body Styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f7f7f7;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Navbar Styling */
+.header {
+    background: white;
+    padding: 15px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    font-size: 26px;
+    font-weight: 700;
+    color: black;
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    padding: 8px 12px;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: #007bff;
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.hamburger .bar {
+    width: 30px;
+    height: 4px;
+    background-color: black;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+/* Hero Section */
+/* Hero Section */
+.hero {
+    background: linear-gradient(135deg, rgba(46, 204, 112, 0.192), rgba(39, 174, 95, 0)), 
+    url('https://i.pinimg.com/736x/fe/a4/19/fea419ba6a0c5b294389b1259fc94568.jpg') no-repeat center center/cover;  /* Replace with your image path */
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    padding: 0 30px;
+}
+
+
+.hero h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-shadow: #333;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+.cta-button {
+    background-color: #ff8c00;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    text-decoration: none;
+    color: white;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #e67e22;
+}
+
+/* Course Section */
+.courses {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.courses h2 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+}
+
+.course-cards {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+/* Course Cards */
+.course-card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 300px;
+    transition: transform 0.3s ease;
+    text-align: center;
+    padding: 20px;
+    margin: 10px 0;
+}
+
+.course-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.course-card h3 {
+    margin: 20px 0 10px;
+    font-size: 1.5rem;
+}
+
+.course-card p {
+    padding: 0 20px 20px;
+    font-size: 1rem;
+}
+
+.course-card:hover {
+    transform: translateY(-10px);
+}
+
+.course-card a {
+    text-decoration: none;
+    color: #16a085;
+    font-weight: bold;
+    margin-top: 15px;
+    display: inline-block;
+}
+
+.course-card a:hover {
+    color: #2c3e50;
+}
+
+/* Footer */
+.footer {
+    background: #f8f9fa;
+    padding: 40px 10%;
+    color: black;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 200px;
+    margin-bottom: 20px;
+}
+
+.footer h3 {
+    font-size: 16px;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.footer a {
+    text-decoration: none;
+    color: #007bff;
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+.download-buttons img {
+    width: 150px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.contact-info {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.copyright {
+    text-align: center;
+    background: #e9ecef;
+    padding: 15px;
+    font-size: 14px;
+    color: #555;
+}
+
+/* Section containing the button */
+.popup-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
+
+/* Button to trigger the popup */
+#openPopup {
+    padding: 15px 25px;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#openPopup:hover {
+    background-color: #45a049;
+}
+
+/* Popup styles */
+.popup {
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.3s ease;
+}
+
+/* Popup content container */
+.popup-content {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    width: 350px;
+    max-width: 90%; /* Makes sure the popup is responsive */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transform: scale(0.8);
+    transition: transform 0.3s ease;
+}
+
+/* Close button styling */
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    color: #555;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    margin-bottom: 3rem;
+}
+
+.close-btn:hover {
+    color: #f44336;
+}
+
+/* Styling for the "Start Game" button */
+.start-game-btn {
+    margin-top: 20px;
+    padding: 12px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.start-game-btn:hover {
+    background-color: #45a049;
+}
+
+/* Adding animations for the popup */
+.popup.show {
+    display: flex;
+    opacity: 1;
+}
+
+.popup.show .popup-content {
+    transform: scale(1);
+}
+
+/* Responsive design for mobile */
+@media (max-width: 600px) {
+    .popup-content {
+        width: 90%;
+    }
+
+    #openPopup {
+        padding: 12px 20px;
+        font-size: 16px;
+    }
+}
+
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        gap: 10px;
+        background-color: #34495e;
+        padding: 20px;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .hero h1 {
+        font-size: 3.5rem;
+    }
+
+    .hero p {
+        font-size: 1.1rem;
+    }
+
+    .cta-button {
+        font-size: 1.1rem;
+    }
+
+    .courses h2 {
+        font-size: 2rem;
+    }
+
+    .course-cards {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .course-card {
+        width: 80%;
+        margin: 10px 0;
+    }
+}

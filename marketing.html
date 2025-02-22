@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marketing Course</title>
+    <style>
+        .header {
+    background: white;
+    padding: 15px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 3rem;
+}
+
+.logo {
+    font-size: 26px;
+    font-weight: 700;
+    color: black;
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    padding: 8px 12px;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: #007bff;
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.hamburger .bar {
+    width: 30px;
+    height: 4px;
+    background-color: black;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #e4e4e4;
+    color: #333;
+    line-height: 1.6;
+}
+        .course-container {
+            margin-top: 3rem;
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        .course-thumbnail img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        h1 {
+            color: #505a66;
+        }
+        .course-description {
+            font-size: 18px;
+            margin: 15px 0;
+        }
+        .study-material {
+            margin-top: 20px;
+            text-align: left;
+        }
+        .study-material h2 {
+            color: #1d2023;
+        }
+        .study-material ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .study-material li {
+            background: #f8f9fa;
+            margin: 10px 0;
+            padding: 10px;
+            border-left: 5px solid #007bff;
+        }
+        .study-material a {
+            text-decoration: none;
+            color: #313942;
+            font-weight: bold;
+        }
+        .study-material a:hover {
+            text-decoration: underline;
+        }
+        .back-home {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: #586676;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .back-home:hover {
+            background: #546678;
+        }
+        .footer {
+            margin-top: 3rem;
+    background: #f8f9fa;
+    padding: 40px 10%;
+    color: black;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 200px;
+    margin-bottom: 20px;
+}
+
+.footer h3 {
+    font-size: 16px;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.footer a {
+    text-decoration: none;
+    color: #1a1f24;
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+.download-buttons img {
+    width: 150px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.contact-info {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.copyright {
+    text-align: center;
+    background: #e9ecef;
+    padding: 15px;
+    font-size: 14px;
+    color: #555;
+}
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">
+            
+            <span style="color: rgb(7, 11, 12);"><b ><a href="index.html" style="text-decoration: none;">tvasta</a></b></span>
+        </div>
+        
+        <div class="hamburger">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="courses.html">Courses</a>
+            <a href="progress.html">Progress</a>
+            <a href="dash.html">Profile</a>
+        </div>
+    </div>
+
+    <div class="course-container">
+        <!-- Course Thumbnail -->
+        <div class="course-thumbnail">
+            <img src="https://i.pinimg.com/736x/a0/c0/3e/a0c03e29091fc498aef8161d10e4af19.jpg" alt="Web Development Course Thumbnail">
+        </div>
+
+        <!-- Course Title -->
+        <h1>Marketing Course</h1>
+
+        <!-- Course Description -->
+        <p class="course-description">
+            Master the fundamentals of modern marketing!
+        </p>
+
+        <!-- Study Material Section -->
+        <div class="study-material">
+            <h2>Study Material</h2>
+            <ul>
+                <li><a href="https://w3schoolsua.github.io/blog/tsifroviy-marketing-strategia_en.html#google_vignette" target="_blank">📄 Marketing Fundamentals</a></li>
+            </ul>
+        </div>
+
+        <!-- Back to Home Button -->
+        <a href="index.html" class="back-home">Back to Home</a>
+    </div>
+    <footer class="footer">
+        <div class="footer-section">
+            <h3>Company</h3>
+            <a href="#">About Us</a>
+            <a href="#">Careers</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms and Conditions</a>
+        </div>
+    
+        <div class="footer-section">
+            <h3>Help & Support</h3>
+            <a href="#">User Guidelines</a>
+            <a href="#">Refund Policy</a>
+            <a href="#">Grievance Redressal</a>
+        </div>
+    
+        <div class="footer-section">
+            <h3>Contact Us</h3>
+            <p class="contact-info">📞 +91 8585858585</p>
+            <p class="contact-info">✉️ support@tvasta.com</p>
+        </div>
+        <div class="footer-section">
+            <h3>Study Material</h3>
+            <a href="#">Artificial intelligence</a>
+            <a href="#">DSA</a>
+            <a href="#">python</a>
+        </div>
+        <!-- <div class="footer-section download-buttons">
+            <h3>Download App</h3>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Get_it_on_Google_play.svg/512px-Get_it_on_Google_play.svg.png" alt="Google Play">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Download_on_the_App_Store_Badge.svg/512px-Download_on_the_App_Store_Badge.svg.png" alt="App Store">
+        </div> -->
+    </footer>
+    
+    <!-- Copyright Notice -->
+    <div class="copyright">
+        © 2025 Web Wizards. All rights reserved.
+    </div>
+
+</body>
+</html>
